@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.19</version>
+            <version>1.4.18</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -54,6 +54,11 @@
             <version>1.2.6</version>
             <scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>black.ninia</groupId>
+			<artifactId>jep</artifactId>
+			<version>4.0.0</version>
+		</dependency>
     </dependencies>
 
     <build>
@@ -117,6 +122,61 @@
                                 </manifest>
                             </archive>
                             <finalName>MemoryGrowthTest</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <outputDirectory>${dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-ImageClient</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass>triton.client.examples.ImageClient</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>ImageClient</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <outputDirectory>${dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-SimpleIrisInferClient</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass>triton.client.examples.SimpleIrisInferClient</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>SimpleIrisInferClient</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <outputDirectory>${dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-triton-java-api</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <finalName>triton-java-api</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <outputDirectory>${dir}</outputDirectory>
                         </configuration>
